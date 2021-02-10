@@ -9,4 +9,9 @@ export class Tab1Page {
 
   constructor() {}
 
+
+  public capturaEvento(e){
+    console.log(e);
+  }
+
 }

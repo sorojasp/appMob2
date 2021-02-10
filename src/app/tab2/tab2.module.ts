@@ -17,5 +17,5 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     Tab2PageRoutingModule
   ],
   declarations: [Tab2Page]
-})
+})//este es el decorador de un modulo
 export class Tab2PageModule {}

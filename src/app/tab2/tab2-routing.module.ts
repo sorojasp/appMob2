@@ -12,5 +12,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
-})
+})//este es el decorador de un modulo
 export class Tab2PageRoutingModule {}
