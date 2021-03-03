@@ -27,14 +27,21 @@
 
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    <ion-card-title>Card Title</ion-card-title>
+    <ion-card-subtitle>{{this.subTitle}}</ion-card-subtitle>
+    <ion-card-title>{{this.title}}</ion-card-title>
   </ion-card-header>
+ 
+  <div style="padding:5px">
+  <ion-img [src]="this.urlImg"></ion-img>
+  </div>
 
   <ion-card-content>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
-  </ion-card-content>
-</ion-card>
+    <p style="text-justify:center">
+    {{this.description}}
+    </p>
+    </ion-card-content>
+
+
+  </ion-card>
 
 </ion-content>
