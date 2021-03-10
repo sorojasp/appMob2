@@ -15,20 +15,20 @@
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
 
-  <ion-button color="primary" (click)="capturaEvento($evento)">Primary</ion-button>
-<ion-button color="secondary">Secondary</ion-button>
-<ion-button color="tertiary">Tertiary</ion-button>
-<ion-button color="success">Success</ion-button>
-<ion-button color="warning">Warning</ion-button>
-<ion-button color="danger">Danger</ion-button>
-<ion-button color="light">Light</ion-button>
-<ion-button color="medium">Medium</ion-button>
-<ion-button color="dark">Dark</ion-button>
+
+
 
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>{{this.subTitle}}</ion-card-subtitle>
+    <ion-card-subtitle>{{this.arrayStr[0]}}</ion-card-subtitle>
+    
+    <div style="display:flex; flex-direction:row;">
+    <div [style]="this.styleIcon">
+      <ion-icon [name]="this.iconStr"></ion-icon>
+    </div>
     <ion-card-title>{{this.title}}</ion-card-title>
+  </div>
+  
   </ion-card-header>
  
   <div style="padding:5px">
@@ -40,8 +40,10 @@
     {{this.description}}
     </p>
     </ion-card-content>
-
+    <ion-button color="primary" (click)="changeImg($event)" expand="block">change img</ion-button>
 
   </ion-card>
+
+  
 
 </ion-content>
