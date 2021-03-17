@@ -20,7 +20,7 @@
 
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
 
   <ion-text style="width: 100%; padding:10px; text-align: center; font-weight: bold">
     <div >
@@ -29,7 +29,7 @@
   </ion-text>
   
   
-  <div style="padding:10px">
+  <div style="padding:10px"  *ngIf="this.showForm">
 
     
   <ion-item>
@@ -37,7 +37,7 @@
     <ion-icon name="calendar-clear"></ion-icon>
     
     <ion-label style="padding-left: 5px;">MM DD YY</ion-label>
-    <ion-datetime displayFormat="MM DD YY" placeholder="Select Date" [(ngModel)]="this.year"></ion-datetime>
+    <ion-datetime displayFormat="MM DD YY" placeholder="Select Date" [(ngModel)]="this.birthday"></ion-datetime>
   </ion-item>
 
  
@@ -45,7 +45,7 @@
   
   
 
-  <ion-button (click)="getDate()" expand="block">get year</ion-button>
+  <ion-button (click)="getBirthday($event)" expand="block">get year</ion-button>
   <ion-chip (click)="presentPopover($event) ">
     <ion-icon name="heart" color="danger"></ion-icon>
     <ion-label>My favorite food</ion-label>
@@ -78,5 +78,35 @@
 
 </div>
 
+
+<ion-button (click)="showDiv($event)" expand="block">show div</ion-button>
+
+<ion-button (click)="showCharactersRick($event)" expand="block" color="secondary">Show Characters</ion-button>
+
+<div *ngFor="let caracterRick of this.caractersRick">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Id: {{ caracterRick.id}}</ion-card-subtitle>
+      <ion-card-title>{{ caracterRick.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-img [src]=" caracterRick.image"></ion-img>
+  
+    <ion-card-content>
+     <ion-list>
+       <ion-item>
+        Gender: {{ caracterRick.gender}}
+       </ion-item>
+
+       <ion-item>
+        Status:  {{ caracterRick.status}}
+      </ion-item>
+
+     </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+</div>
 
 </ion-content>

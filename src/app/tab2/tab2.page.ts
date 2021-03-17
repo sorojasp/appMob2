@@ -3,7 +3,8 @@ import {Router} from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import {MyChoiceComponent} from './../components/my-choice/my-choice.component';
 import { PopoverController } from '@ionic/angular';
-import {CheckboxComponent} from '../components/checkbox/checkbox.component'
+import {CheckboxComponent} from '../components/checkbox/checkbox.component';
+import {RickMortyService} from '../services/rickMorty/rick-morty.service'
 
 @Component({
   selector: 'app-tab2',
@@ -14,21 +15,23 @@ export class Tab2Page {
 
 
   public title:string ="Contratistas"
-
-
-  public year:any;
+  public birthday:string;  
   private ceSelected:boolean=true;
+  public showForm:boolean=true;
+  public caractersRick:any[];
 
   constructor(
     private router:Router,
     public modalController: ModalController,
-    public popoverController: PopoverController
-  ) {}
-
-
-  public getDate(){
-    console.log(this.year)
+    public popoverController: PopoverController,
+    public serviceRick:RickMortyService
+  ) {
+    this.caractersRick=this.serviceRick.getCharacters();
+    console.log(this.caractersRick)
   }
+
+
+
 
   public goLogin(){
     this.router.navigate(['../login'])
@@ -66,8 +69,24 @@ export class Tab2Page {
       this.ceSelected=false
     }
   
-      
-     
+  
+    }
+
+    public getBirthday(e){
+      console.log(e);
+      console.log(this.birthday)
+      this.showForm=false;
+
+
+    }
+
+    public showDiv($event){
+
+    this.showForm=true;  
+    }
+
+    public showCharactersRick(e){
+  
     }
     
   
