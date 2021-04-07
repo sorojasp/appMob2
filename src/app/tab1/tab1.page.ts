@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {SouthParkService} from './../services/SouthPark/south-park.service'
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(
+    private southPService:SouthParkService
+  ) {}
 
   public subTitle:string="Justicia Especial para la Páz";
   public title:string="JEP"
@@ -16,6 +18,12 @@ export class Tab1Page {
   public arrayStr:string[]= ["JEP", "JEPáz"];
   public iconStr:string="paw-outline"
   public styleIcon:string="color:blue; padding-right: 5px; zoom:1.5";
+  public characterSP={
+    name:"",
+    full_name:"",
+    urlImage:"https://i.pinimg.com/564x/23/1f/07/231f07731f87e1e6883abae0f8734c53.jpg",
+    religion:""
+  };
 
 
   public changeImg(e){
@@ -24,5 +32,25 @@ export class Tab1Page {
     this.iconStr="megaphone-outline";
     this.styleIcon="color:green; padding-right: 5px; zoom:1.5";
   }
+
+  public getCharacter(e){
+
+    this.southPService.getCharacter(1).subscribe(res=>{
+      console.log(res['data'])
+      this.characterSP.name=res['data']['name'];
+      this.characterSP.full_name=res['data']['full_name'];
+      this.characterSP.religion=res['data']['religion'];
+      
+
+
+    }, err=>{
+      console.log(err)
+
+    })
+    
+
+
+  }
+
 
 }

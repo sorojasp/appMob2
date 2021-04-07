@@ -1,9 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+<ion-header >
+  
+  <ion-toolbar  color="dark">
+    <div style="display:flex; flex-direction:row; align-items:center; justify-content:center">
+    <div style="zoom:2.5">
+    <ion-icon name="skull-outline"></ion-icon>
+  </div>
+    <ion-title>
+    <p style="text-align: center; font-weight: bold;">
+      login
+    </p>
+    </ion-title>
+  </div>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+<div style="padding: 10px;">
+  <ion-list>
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
 
+  <ion-list>
+    <ion-item>
+      <ion-label>LastName:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="getTab($event)">
+    Ingresar
+    <ion-icon name="log-in-outline"></ion-icon>
+  </ion-button>
+
+</div>
 </ion-content>
